@@ -1,0 +1,85 @@
+body {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #e66465, #9198e5);
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 15px;
+    width: 50%;
+    max-width: 500px;
+    padding: 2rem;
+    background-color: rgb(37, 37, 37);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+main h1 {
+    color: white;
+    font-size: 4vh;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+main h2 {
+    color: white;
+    font-size: 3vh;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+main h3 {
+    color: #dddddd;
+    font-size: 2.5vh;
+    text-align: center;
+}
+
+section p {
+    color: #cfcfcf;
+    font-size: 2vh;
+    text-align: center;
+    line-height: 1.4;
+    margin: 0.5rem 0;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+main input {
+    text-align: center;
+    padding: 1rem;
+    font-size: 2vh;
+    color: black;
+    border-radius: 15px;
+    border: none;
+    margin-top: 1rem;
+    width: 70%;
+    max-width: 300px;
+}
+
+main button {
+    width: 50%;
+    max-width: 200px;
+    height: 3rem;
+    font-size: 2.5vh;
+    font-weight: bold;
+    color: #ffffff;
+    border-radius: 10px;
+    background-color: rgb(175, 69, 69);
+    border: none;
+    margin-top: 1.5rem;
+    transition: background-color 0.3s ease;
+}
+
+main button:hover {
+    background-color: #d1b897;
+    cursor: pointer;
+}
