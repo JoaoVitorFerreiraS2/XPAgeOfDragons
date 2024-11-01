@@ -1,20 +1,24 @@
 class Player {
     constructor() {
-        this.reset();
-    }
-
-    // Função para resetar o jogador
-    reset() {
         this.level = 1;
         this.currentXP = 0;
         this.totalXP = 0;
         this.nextLevelXP = 100;
     }
 
+    // Função para configurar nível e XP inicial
+    setInitialValues(level, xp) {
+        this.level = level;
+        this.currentXP = xp;
+        this.totalXP = xp;
+        this.nextLevelXP = level <= 10 ? level * 100 : 1000;
+    }
+
     addXP(xp) {
         this.currentXP += xp;
         this.totalXP += xp;
 
+        // Checa se é necessário subir de nível
         while (this.currentXP >= this.nextLevelXP) {
             this.levelUp();
         }
@@ -23,11 +27,10 @@ class Player {
     levelUp() {
         this.currentXP -= this.nextLevelXP;
         this.level += 1;
+        this.nextLevelXP = this.level <= 10 ? this.level * 100 : 1000;
 
-        if (this.level <= 10) {
-            this.nextLevelXP = this.level * 100;
-        } else {
-            this.nextLevelXP = 1000;
+        if (this.currentXP < 0) {
+            this.currentXP = 0;
         }
     }
 
@@ -41,30 +44,31 @@ class Player {
     }
 }
 
-// Instancia o jogador
 const player = new Player();
 
-// Função para atualizar o nível e XP no HTML
 function updateDisplay() {
     const status = player.getStatus();
     document.querySelector("h2").textContent = `Seu nível é: ${status.level}`;
     document.querySelector("h3").textContent = `XP Atual: ${status.currentXP} / ${status.nextLevelXP}`;
 }
 
-// Função chamada ao clicar no botão
 function addExperience() {
-    const xpInput = document.getElementById("xp");
-    const xpToAdd = parseInt(xpInput.value);
+    const levelInput = parseInt(document.getElementById("currentLevel").value);
+    const currentXPInput = parseInt(document.getElementById("currentXP").value);
+    const xpToAdd = parseInt(document.getElementById("xp").value);
+
+    if (!isNaN(levelInput) && levelInput > 0 && !isNaN(currentXPInput) && currentXPInput >= 0) {
+        player.setInitialValues(levelInput, currentXPInput);
+    } else {
+        alert("Por favor, insira um nível e XP inicial válidos.");
+        return;
+    }
 
     if (!isNaN(xpToAdd) && xpToAdd > 0) {
-        player.reset();  // Reseta o jogador
         player.addXP(xpToAdd);
         updateDisplay();
-        xpInput.value = "";  // Limpa o valor do campo de input
+        document.getElementById("xp").value = "";
     } else {
-        alert("Por favor, insira um valor de XP válido.");
+        alert("Por favor, insira um valor de XP válido para somar.");
     }
 }
-
-// Adiciona o evento de clique ao botão
-document.querySelector("button").onclick = addExperience;
