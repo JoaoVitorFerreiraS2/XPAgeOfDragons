@@ -9,9 +9,10 @@
 <body>
     <main>
         <h1>Soma De XP</h1>
-
+        
+        <!-- Regras do sistema de XP -->
         <section>
-            <p><strong>Regras de XP:</strong></p>
+            <p><strong>Regras de Progressão:</strong></p>
             <p>Nível 1 ao 2 ≈ 100xp<br>
                Nível 2 ao 3 ≈ 200xp<br>
                Nível 3 ao 4 ≈ 300xp<br>
@@ -26,8 +27,13 @@
             <p>Ao atingir o próximo nível, o XP atual é reduzido pela quantidade necessária para o nível seguinte.</p>
         </section>
 
-        <input type="number" name="xp" id="xp" placeholder="Coloque seu XP">
+        <!-- Inputs para definir o nível e XP inicial -->
+        <input type="number" name="currentLevel" id="currentLevel" placeholder="Seu Nível Atual">
+        <input type="number" name="currentXP" id="currentXP" placeholder="Seu XP Atual">
+        <input type="number" name="xp" id="xp" placeholder="Coloque o XP para Somar">
+        
         <button type="button" onclick="addExperience()">Somar</button>
+        
         <h2>Seu nível é: </h2>
         <h3>Aguardando</h3>
     </main>
