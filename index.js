@@ -1,3 +1,74 @@
+// Dados dos personagens e seus níveis
+const characterData = [
+    { name: "Lando Akinkawon", level: 8, xp: 150, nextLevelXP: 800 },
+    
+    { name: "Kaella Vanthorn", level: 7, xp: 450, nextLevelXP: 700 },
+    { name: "Aurion Pavarell", level: 7, xp: 200, nextLevelXP: 700 },
+    { name: "Stradh Von Zarovich", level: 7, xp: 100, nextLevelXP: 700 },
+
+    { name: "Maekon Shadowfen", level: 6, xp: 500, nextLevelXP: 600 },
+    { name: "Oliver Shadowfen", level: 6, xp: 100, nextLevelXP: 600 },
+    { name: "Lunette Windrider", level: 6, xp: 550, nextLevelXP: 600 },
+    { name: "Roselyn Ashford", level: 6, xp: 400, nextLevelXP: 600 },
+    { name: "Laenor Astralis", level: 6 },
+
+    { name: "Annelise Windrider", level: 5, xp: 250, nextLevelXP: 500 },
+    { name: "Lyonel Tannenwood", level: 5, xp: 350, nextLevelXP: 500 },
+
+    { name: "Daveryn Rivermoore", level: 4, xp: 100, nextLevelXP: 400 },
+    { name: "Emory Sanderson", level: 4, xp: 300, nextLevelXP: 400 },
+
+    { name: "Mierin Shiōr", level: 3, xp: 100, nextLevelXP: 300 },
+    { name: "Kaiser Sunacorch", level: 3, xp: 100, nextLevelXP: 300 },
+
+    { name: "Maegor Skylance", level: 2, xp: 100, nextLevelXP: 200 },
+
+    { name: "Catherine D. Rivermoor", level: 1 },
+    { name: "Aesterys Stoneshire", level: 1 },
+    { name: "Ton Sanders", level: 1 },
+    { name: "Yara A'tlantes Seagate", level: 1 },
+    { name: "Odélia Millicent Feralas", level: 1 },
+    { name: "Tauriel", level: 1 },
+    { name: "Manoel Álvares", level: 1 },
+    { name: "Silvano Astralis", level: 1 },
+    { name: "Amélia Feralas", level: 1 },
+    { name: "Galahad Shadowvale", level: 1 },
+    { name: "Halvard Sunhaven", level: 1 },
+    { name: "Louis Windrider", level: 1 },
+];
+
+// Função para exibir a lista de personagens organizada por nível
+function displayCharacterLevels() {
+    const leaderboard = document.getElementById("xp-leaderboard");
+
+    // Agrupar personagens por nível
+    const groupedCharacters = characterData.reduce((acc, character) => {
+        if (!acc[character.level]) acc[character.level] = [];
+        acc[character.level].push(character);
+        return acc;
+    }, {});
+
+    // Iterar sobre os níveis e adicionar ao leaderboard
+    for (const [level, characters] of Object.entries(groupedCharacters).sort((a, b) => b[0] - a[0])) {
+        const levelTitle = document.createElement("div");
+        levelTitle.className = "level-title";
+        levelTitle.textContent = `Nível ${level}`;
+
+        leaderboard.appendChild(levelTitle);
+
+        characters.forEach(character => {
+            const characterItem = document.createElement("li");
+            characterItem.className = "character-name";
+            const xpText = character.xp ? ` (XP ${character.xp} | ${character.nextLevelXP})` : '';
+            characterItem.textContent = `• ${character.name}${xpText}`;
+            leaderboard.appendChild(characterItem);
+        });
+    }
+}
+
+// Inicializar a exibição da lista de personagens
+displayCharacterLevels();
+
 class Player {
     constructor() {
         this.level = 1;

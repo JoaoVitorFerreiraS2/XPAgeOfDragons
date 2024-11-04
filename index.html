@@ -1,43 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soma de XP</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <main>
         <h1>Soma De XP</h1>
-        
-        <!-- Regras do sistema de XP -->
         <section>
             <p><strong>Regras de Progressão:</strong></p>
             <p>Nível 1 ao 2 ≈ 100xp<br>
-               Nível 2 ao 3 ≈ 200xp<br>
-               Nível 3 ao 4 ≈ 300xp<br>
-               Nível 4 ao 5 ≈ 400xp<br>
-               Nível 5 ao 6 ≈ 500xp<br>
-               Nível 6 ao 7 ≈ 600xp<br>
-               Nível 7 ao 8 ≈ 700xp<br>
-               Nível 8 ao 9 ≈ 800xp<br>
-               Nível 9 ao 10 ≈ 900xp<br>
-               Nível 10 em diante ≈ 1000xp
+                Nível 2 ao 3 ≈ 200xp<br>
+                Nível 3 ao 4 ≈ 300xp<br>
+                Nível 4 ao 5 ≈ 400xp<br>
+                Nível 5 ao 6 ≈ 500xp<br>
+                Nível 6 ao 7 ≈ 600xp<br>
+                Nível 7 ao 8 ≈ 700xp<br>
+                Nível 8 ao 9 ≈ 800xp<br>
+                Nível 9 ao 10 ≈ 900xp<br>
+                Nível 10 em diante ≈ 1000xp
             </p>
-            <p>Ao atingir o próximo nível, o XP atual é reduzido pela quantidade necessária para o nível seguinte.</p>
         </section>
 
-        <!-- Inputs para definir o nível e XP inicial -->
         <input type="number" name="currentLevel" id="currentLevel" placeholder="Seu Nível Atual">
         <input type="number" name="currentXP" id="currentXP" placeholder="Seu XP Atual">
-        <input type="number" name="xp" id="xp" placeholder="XP Adquirido">
-        
+        <input type="number" name="xp" id="xp" placeholder="Coloque o XP para Somar">
+
         <button type="button" onclick="addExperience()">Somar</button>
-        
-        <h2>Seu nível é: </h2>
+
+        <h2>Seu nível é:</h2>
         <h3>Aguardando</h3>
+
+        <section id="xp-leaderboard" class="xp-leaderboard">
+            <h2>Tabela de Progressão de Lvl!</h2>
+            <p>(Não se esqueçam de atualizar a ficha de status no grupo “atualizações”)</p>
+        </section>
     </main>
 </body>
+
 </html>
 
 <script src="index.js"></script>
