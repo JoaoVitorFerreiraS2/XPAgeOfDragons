@@ -122,8 +122,8 @@ const player = new Player();
 
 function updateDisplay() {
     const status = player.getStatus();
-    document.querySelector("h2").textContent = Seu nível é: ${status.level};
-    document.querySelector("h3").textContent = XP Atual: ${status.currentXP} / ${status.nextLevelXP};
+    document.querySelector("h2").textContent = `Seu nível é: ${status.level}`;
+    document.querySelector("h3").textContent = `XP Atual: ${status.currentXP} / ${status.nextLevelXP}`;
 }
 
 function addExperience() {
@@ -146,5 +146,3 @@ function addExperience() {
         alert("Por favor, insira um valor de XP válido para somar.");
     }
 }
-
-
